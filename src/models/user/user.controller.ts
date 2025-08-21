@@ -1,4 +1,5 @@
 import User from "./user.model";
+import express, { Request, Response } from "express";
 
     export const registerUser =async (req,res) => {
         const payLoad = req.body;
