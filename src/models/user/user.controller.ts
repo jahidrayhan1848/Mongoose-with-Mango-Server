@@ -1,7 +1,7 @@
 import User from "./user.model";
 import express, { Request, Response } from "express";
 
-    export const registerUser =async (req,res) => {
+   const registerUser =async (req : Request,res : Response ) => {
         const payLoad = req.body;
         const user = new User (payLoad)
           const data =await user.save()
@@ -11,8 +11,19 @@ import express, { Request, Response } from "express";
         data
 
     })
+    }
+   const getrUsers =async (req : Request,res : Response ) => {
+        const payLoad = req.body;
+    
+          const data =await User.find()
+            res.send({
+        success :true,
+        message : "user Registred complete" ,
+        data
 
-   
+    })
     }
 
+    export {registerUser,getrUsers}
+    
   
