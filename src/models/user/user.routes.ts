@@ -4,7 +4,7 @@ import { getrUsers, registerUser } from "./user.controller";
 
 const userRoute = Router();
 
-userRoute.post ("/user",registerUser)
-userRoute.get ("/users",getrUsers)
+userRoute.post ("/",registerUser)
+userRoute.get ("/",getrUsers)
 
-export default userRoute ;
+export default userRoute ;        
