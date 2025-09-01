@@ -1,7 +1,16 @@
-import { Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 import IOrder from "./order.interface";
 
+const orderAdressSchema = new Schema({
+  zipcode : String,
+  
+ state : String,
+  country : String,
+street : String,
 
+
+    
+})
 
 const orderModel = new Schema<IOrder>({
     user: {
@@ -29,10 +38,11 @@ const orderModel = new Schema<IOrder>({
       enum: ["pending", "confirmed", "shipped", "delivered", "cancelled"],
       default: "pending",
     },
-    address: {
-      zipcode: { type: String, required: true, trim: true },
-      state: { type: String, required: true, trim: true },
-      country: { type: String, required: true, trim: true },
-      street: { type: String, required: true, trim: true },
-    },
-})
+    address: {type : orderAdressSchema, required : true}
+});
+
+
+const order = model('order',orderModel);
+
+
+export default order ;
