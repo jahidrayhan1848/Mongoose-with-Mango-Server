@@ -18,7 +18,7 @@ import express, { Request, Response } from "express";
           const data =await User.find()
             res.send({
         success :true,
-        message : "user Registred complete" ,
+        message : "user Registred completeeeeeeeeeeeee" ,
         data
 
     })
