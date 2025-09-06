@@ -1,113 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weight Loss Plan Card</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Root & Remedy Integrative Care — Peptide Therapy</title>
   <style>
-    :root {
-      --bg: #f3f6fb;
-      --card: #fff;
-      --accent: #1f7a73;
-      --accent2: #2ea6ff;
-      --text-muted: #555;
-      --radius: 14px;
-      --shadow: 0 8px 20px rgba(0,0,0,0.08);
-      --transition: 300ms ease;
+    :root{
+      --bg:#f5f7fa; --text:#0f172a; --muted:#6b7280; --accent:#0f766e; --accent-2:#06b6d4;
+      --radius:12px; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);line-height:1.6}
+    main{max-width:960px;margin:0 auto;padding:24px}
 
-    body {
-      font-family: "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 20px;
-    }
+    header{text-align:center;margin-bottom:40px}
+    header h1{font-size:32px;color:var(--accent-2);margin-bottom:12px}
+    header p{color:var(--muted);font-size:16px}
 
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      max-width: 600px;
-      padding: 24px;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
+    section{margin-bottom:60px;line-height:1.7;position:relative;padding:12px}
+    section:nth-child(even){background:rgba(15,118,110,0.05);border-radius:16px;padding:24px}
+    section h2{font-size:24px;color:var(--accent);margin-bottom:12px;position:relative}
+    section h2::after{content:'';width:60px;height:3px;background:var(--accent-2);display:block;margin-top:6px;border-radius:2px}
+    section p, ul{color:var(--text);margin-bottom:12px}
+    ul{padding-left:20px;color:var(--muted)}
+    li{margin-bottom:6px}
 
-    .card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
-    }
+    .hero-image{width:100%;border-radius:16px;margin-bottom:24px;overflow:hidden}
+    .hero-image img{width:100%;height:auto;display:block;object-fit:cover}
 
-    .title {
-      font-size: 22px;
-      font-weight: 700;
-      color: #111;
-      margin-bottom: 8px;
-    }
+    .grid-two{display:flex;gap:24px;flex-wrap:wrap;margin-top:24px}
+    .grid-two > div{flex:1 1 48%;}
 
-    .subtitle {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
+    .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px}
+    .btn{padding:12px 20px;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block;transition:0.3s}
+    .btn.primary{background:var(--accent);color:#fff}
+    .btn.primary:hover{background:#065d52}
+    .btn.secondary{background:transparent;border:2px solid var(--accent);color:var(--accent)}
+    .btn.secondary:hover{background:var(--accent-2);color:#fff;border-color:var(--accent-2)}
 
-    .content {
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-
-    .cost {
-      font-size: 18px;
-      font-weight: bold;
-      color: #111;
-      margin-top: 12px;
-    }
-
-    .cta {
-      margin-top: 20px;
-    }
-
-    .cta a {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      color: #fff;
-      font-weight: 600;
-      transition: background 200ms ease;
-    }
-
-    .cta a:hover {
-      background: linear-gradient(90deg, var(--accent2), var(--accent));
-    }
+    @media(max-width:640px){.grid-two{flex-direction:column}}
   </style>
 </head>
 <body>
+  <main>
+    <header>
+      <h1>Peptide Therapy Explained</h1>
+      <p>Enhance Your Health with Advanced Treatments at Root & Remedy Integrative Care</p>
+    </header>
 
-  <div class="card">
-    <div class="title">Weight Loss Plan</div>
-    <div class="subtitle">(offered after initial consult)</div>
-    <div class="content">
-      We offer monthly check-ins through secure messaging within our EMR portal. This streamlined process allows you to conveniently request medication and supplement refills and provide updates on your treatment status. 
-      <br><br>
-      Every 3 months, a 30-minute phone or video check-up.
-      <br><br>
-      <strong>Elevate your health journey</strong> with our optional premium services, including personalized health coaching, meal plans and delicious recipes, and tailored fitness programs—all designed to support your unique goals. 
-      <br><br>
-      These additional offerings are available whenever you're ready to take your progress to the next level.
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?q=80&w=1200&auto=format&fit=crop" alt="clinic wellness">
     </div>
-    <div class="cost">Cost: $75/month + meds/supplements + labs</div>
-    <div class="cta">
-      <a href="#">Request Plan</a>
-    </div>
-  </div>
 
+    <section>
+      <h2>What Are Peptides?</h2>
+      <p>Peptides are short chains of amino acids (2-50) that regulate processes like tissue repair, hormone production, and immune response. There are endogenous peptides our bodies naturally produce, and exogenous peptides sourced externally to supplement or enhance these functions.</p>
+    </section>
+
+    <section>
+      <h2>What is Peptide Therapy?</h2>
+      <p>This treatment involves administering specific peptides to improve or support bodily functions when natural production is insufficient. Peptide therapy can target issues like weight management, muscle growth, anti-aging, hormonal balance, immune support, skin health, sexual vitality, and more.</p>
+    </section>
+
+    <section>
+      <h2>Types & Benefits</h2>
+      <div class="grid-two">
+        <div>
+          <h3>Types of Peptides</h3>
+          <ul>
+            <li><strong>BPC-157:</strong> Promotes healing and reduces inflammation.</li>
+            <li><strong>CJC-1295:</strong> Boosts growth hormone for muscle gain and anti-aging.</li>
+            <li><strong>Ipamorelin:</strong> Enhances recovery and improves sleep.</li>
+            <li><strong>Semaglutide:</strong> Regulates appetite, aids weight loss.</li>
+            <li><strong>GHK-Cu:</strong> Supports skin elasticity and wound healing.</li>
+            <li><strong>PT-141:</strong> Enhances libido and sexual health.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Benefits of Therapy</h3>
+          <ul>
+            <li>Building lean muscle and improving athletic performance</li>
+            <li>Supporting weight loss and metabolism</li>
+            <li>Restoring hormonal balance</li>
+            <li>Anti-aging skin effects</li>
+            <li>Strengthening immune health</li>
+            <li>Improving sexual wellness</li>
+            <li>Accelerating tissue repair and recovery</li>
+            <li>Enhancing cognitive function and brain health</li>
+            <li>Managing blood pressure</li>
+            <li>Stimulating hair growth</li>
+            <li>Improving gut health</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Delivery Methods & What to Expect</h2>
+      <ul>
+        <li><strong>Subcutaneous Injections:</strong> Most effective, bypassing digestion.</li>
+        <li><strong>Oral capsules:</strong> Suitable for some peptides.</li>
+        <li><strong>Nasal sprays:</strong> Quick absorption.</li>
+        <li><strong>Topicals:</strong> Targeted skin benefits.</li>
+      </ul>
+      <p>Start with a comprehensive consultation. Personalized treatment plans ensure optimal dosing, regular check-ins, and safety.</p>
+    </section>
+
+    <section>
+      <h2>Risks & Medical Oversight</h2>
+      <p>Most peptides are well-tolerated, but possible side effects include injection site irritation, immune reactions, and hormonal imbalances. Professional oversight ensures effectiveness and reduces risks.</p>
+    </section>
+
+    <section>
+      <h2>Our Mission</h2>
+      <p>At Root & Remedy Integrative Care, we aim to help you maintain a youthful, vibrant, and resilient life. Peptide therapy supports anti-aging, cellular repair, collagen production, and overall vitality.</p>
+      <div class="cta">
+        <a href="mailto:hello@rootandremedy.example?subject=Peptide Consultation" class="btn primary">Book a Consultation</a>
+        <a href="#learn" class="btn secondary">Learn More</a>
+      </div>
+      <p style="text-align:center;color:var(--muted);font-size:13px;margin-top:12px">*Informational content only. Consult a licensed provider for personalized advice.</p>
+    </section>
+  </main>
 </body>
 </html>
