@@ -15,7 +15,18 @@ res.send ({
 
 }
 
+const getOrder = async (req:Request,res:Response)=>{
+    const orderList = await order.find(req.body)
+
+res.send ({
+    success:true,
+    message : "Mango order getting  create succesfully",
+    data : orderList,
+})
+
+}
+
 
 export const orderController ={
-    CreateOrder
+    CreateOrder,getOrder
 }
