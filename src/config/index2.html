@@ -1,38 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ElevatEd – Clean CTA</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Cards Example</title>
+  <style>
+    body {
+      background: #0a3a5a; /* dark blue background */
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+    }
+
+    .card {
+      background: #fff;
+      color: #000;
+      padding: 20px 25px;
+      border-radius: 6px;
+      width: 320px;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+      transition: all 0.35s ease;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .card p {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.4em;
+    }
+
+    /* Individual card rotations */
+    .card1 {
+      transform: rotate(-2deg) translateX(0px) translateY(0px);
+    }
+
+    /* Middle card */
+    .card2 {
+      transform: rotate(2.5deg) translateX(0px) translateY(-12px);
+      z-index: 2; /* above first card */
+    }
+
+    /* Third card overlapping 2nd card: up and right */
+    .card3 {
+      transform: rotate(-1.5deg) translateX(12px) translateY(-24px);
+      z-index: 3; /* above second card */
+    }
+
+    /* Hover effect */
+    .card:hover {
+      background: #ff7f50; /* orange hover */
+      color: #fff;
+      transform: translateY(-8px) rotate(0deg) !important;
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-
-  <!-- Clean Full-width CTA Section -->
-  <section class="py-24 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      
-      <!-- Headline -->
-      <h2 class="text-4xl md:text-5xl font-extrabold text-indigo-800 mb-6">
-        Ready to take the next step?
-      </h2>
-      
-      <!-- Supporting Text -->
-      <p class="text-lg md:text-xl text-gray-700 mb-10">
-        Whether you’re a school looking for provision, a parent seeking support, or a young person ready to try something new – we’re here to help.
-      </p>
-      
-      <!-- Buttons -->
-      <div class="flex flex-col sm:flex-row justify-center gap-6">
-        <a href="#contact" class="px-8 py-4 bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 transition transform hover:-translate-y-1">
-          Contact Us
-        </a>
-        <a href="#workshops" class="px-8 py-4 bg-white border border-indigo-600 text-indigo-600 font-semibold rounded-full hover:bg-indigo-100 transition transform hover:-translate-y-1">
-          Workshops for Parents
-        </a>
-      </div>
+<body>
+  <div class="cards">
+    <div class="card card1">
+      <h3>25M€/ anno</h3>
+      <p>Alcuni degli studi legali che scelgono di affidare le loro pratiche a noi.</p>
     </div>
-  </section>
-
+    <div class="card card2">
+      <h3>12-24 mesi</h3>
+      <p>Tempo medio per ottenere il pagamento dello Stato.</p>
+    </div>
+    <div class="card card3">
+      <h3>1 su 3 rinuncia</h3>
+      <p>Molti avvocati non presentano l'istanza per via della burocrazia.</p>
+    </div>
+  </div>
 </body>
 </html>
