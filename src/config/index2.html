@@ -3,155 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workshops - ElevatEd</title>
+    <title>Schools - ElevatEd</title>
     <style>
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #e2e8f0;
+            background-color: #f7f8fa;
+            color: #1f2a44;
             line-height: 1.7;
         }
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
         }
         .header {
             text-align: center;
             padding: 80px 20px;
-            background: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
             color: white;
             position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
         }
         .header h1 {
             font-size: 3.5rem;
             font-weight: 800;
-            margin: 0 0 15px;
+            margin: 0 0 20px;
             letter-spacing: -0.02em;
             text-transform: uppercase;
         }
         .header p {
-            font-size: 1.2rem;
-            max-width: 600px;
+            font-size: 1.3rem;
+            max-width: 700px;
             margin: 0 auto;
             opacity: 0.9;
         }
-        .section {
-            margin: 60px 0;
+        .main-content {
+            padding: 60px 20px;
+            text-align: center;
         }
-        .section h2 {
+        .main-content h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #fff;
+            color: #1e3a8a;
             margin-bottom: 30px;
-            position: relative;
-            display: inline-block;
         }
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 60%;
-            height: 4px;
-            background: linear-gradient(90deg, #3b82f6, #ec4899);
+        .main-content p {
+            font-size: 1.1rem;
+            color: #4b5563;
+            max-width: 800px;
+            margin: 0 auto 20px;
         }
-        .pillar-group {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .pillar {
-            position: relative;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
+        .callout {
+            background: linear-gradient(145deg, #3b82f6, #1e3a8a);
+            color: white;
+            padding: 40px;
             border-radius: 12px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideIn 0.5s ease forwards;
+            margin: 40px auto;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
         }
-        .pillar:nth-child(1) { animation-delay: 0.1s; }
-        .pillar:nth-child(2) { animation-delay: 0.2s; }
-        .pillar:nth-child(3) { animation-delay: 0.3s; }
-        .pillar:nth-child(4) { animation-delay: 0.4s; }
-        .pillar:nth-child(5) { animation-delay: 0.5s; }
-        .pillar:hover {
+        .callout:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
         }
-        .pillar-icon {
-            font-size: 2.8rem;
-            color: #3b82f6;
-            margin-bottom: 15px;
-        }
-        .pillar h3 {
+        .callout h3 {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #fff;
             margin: 0 0 15px;
         }
-        .pillar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .pillar li {
+        .callout p {
             font-size: 1rem;
-            color: #e2e8f0;
-            margin: 10px 0;
-            padding-left: 20px;
-            position: relative;
+            margin: 0;
+            opacity: 0.95;
         }
-        .pillar li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: #ec4899;
-        }
-        .package-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-between;
-        }
-        .package {
-            flex: 1 1 300px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            position: relative;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideIn 0.5s ease forwards;
-        }
-        .package:nth-child(1) { animation-delay: 0.6s; }
-        .package:nth-child(2) { animation-delay: 0.7s; }
-        .package:nth-child(3) { animation-delay: 0.8s; }
-        .package:nth-child(4) { animation-delay: 0.9s; }
-        .package:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.2);
-        }
-        .package h4 {
-            font-size: 1.5rem;
+        .cta {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #fff;
+            color: #1e3a8a;
             font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .cta:hover {
+            background: #1e3a8a;
             color: #fff;
-            margin: 0 0 15px;
         }
-        .package p {
-            font-size: 0.95rem;
-            color: #e2e8f0;
-            margin: 8px 0;
+        .content-section {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
         }
-        .package strong {
-            color: #3b82f6;
-        }
-        @keyframes slideIn {
+        @keyframes fadeInUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -162,22 +109,27 @@
                 font-size: 2.5rem;
             }
             .header p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
-            .section h2 {
+            .main-content h2 {
                 font-size: 2rem;
             }
-            .pillar h3 {
+            .callout {
+                padding: 30px;
+            }
+            .callout h3 {
                 font-size: 1.5rem;
             }
-            .package {
-                flex: 1 1 100%;
+            .callout p {
+                font-size: 0.95rem;
             }
         }
         @media (prefers-reduced-motion: reduce) {
-            .pillar, .package {
+            .content-section, .callout {
                 transition: none;
                 animation: none;
+                opacity: 1;
+                transform: none;
             }
         }
     </style>
@@ -185,97 +137,20 @@
 </head>
 <body>
     <div class="header">
-        <h1>Our Workshops</h1>
-        <p>Explore our dynamic workshops designed to empower and inspire across the five ElevatEd pillars.</p>
+        <h1>Partner with ElevatEd</h1>
+        <p>Transforming education through holistic, wellbeing-focused programmes for young people.</p>
     </div>
     <div class="container">
-        <div class="section">
-            <h2>Pillar Workshops</h2>
-            <div class="pillar-group">
-                <div class="pillar">
-                    <div class="pillar-icon">🌱</div>
-                    <h3>Wellbeing Programme</h3>
-                    <ul>
-                        <li>Workshop: Breathwork Mindfulness & Stress Management</li>
-                        <li>Workshop: Healthy Habits — Sleep, Nutrition & Movement</li>
-                        <li>Workshop: Building Emotional Resilience</li>
-                        <li>Workshop: Positive Self-Talk & Growth Mindset</li>
-                    </ul>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-icon">🌟</div>
-                    <h3>Leadership Programme</h3>
-                    <ul>
-                        <li>Workshop: Public Speaking & Presentation Skills</li>
-                        <li>Workshop: Teamwork & Collaboration</li>
-                        <li>Workshop: Decision-Making & Problem-Solving</li>
-                        <li>Workshop: Leading with Empathy</li>
-                    </ul>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-icon">🏅</div>
-                    <h3>Sport Programme</h3>
-                    <ul>
-                        <li>Workshop: Team Sports & Fair Play</li>
-                        <li>Workshop: Fitness for Confidence</li>
-                        <li>Workshop: Discipline Through Training</li>
-                        <li>Workshop: Mindset of an Athlete</li>
-                    </ul>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-icon">🎨</div>
-                    <h3>Arts Programme</h3>
-                    <ul>
-                        <li>Workshop: Creative Expression Through Art</li>
-                        <li>Workshop: Drama & Confidence on Stage</li>
-                        <li>Workshop: Music for Wellbeing</li>
-                        <li>Workshop: Exploring Identity Through Creativity</li>
-                    </ul>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-icon">🎓</div>
-                    <h3>Achievement Programme</h3>
-                    <ul>
-                        <li>Workshop: Study Skills & Time Management</li>
-                        <li>Workshop: Setting Goals & Tracking Progress</li>
-                        <li>Workshop: Celebrating Achievements & Building Pride</li>
-                        <li>Workshop: Overcoming Challenges & Staying Motivated</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="main-content content-section">
+            <h2>Supporting Schools and Young People</h2>
+            <p>At ElevatEd, we work hand-in-hand with schools, trusts, and local authorities to provide a tailored, wellbeing-focused alternative provision for young people aged 11–14. Our holistic approach supports academic progress, personal development, and emotional resilience, ensuring every learner has the tools to thrive both in school and beyond.</p>
+            <p>We offer flexible placements, part-time learning, and bespoke programmes across our five pillars—Wellbeing, Leadership, Sport, Arts, and Achievement—designed to re-engage pupils, improve attendance, and foster confidence.</p>
+            <p>By partnering closely with schools, we create seamless support pathways, providing regular updates, collaborative planning, and shared strategies that strengthen each child’s journey. Our goal is simple: to transform the educational experience for every young person we work with, enabling them to achieve their potential and flourish in all areas of life.</p>
+            <a href="#" class="cta">Discover how ElevatEd can support your school and pupils today.</a>
         </div>
-        <div class="section">
-            <h2>Workshop Packages</h2>
-            <div class="package-group">
-                <div class="package">
-                    <h4>⚡ Single Session</h4>
-                    <p><strong>Length:</strong> 60–120 minutes</p>
-                    <p><strong>Purpose:</strong> Standalone, focused on one skill or theme.</p>
-                    <p><strong>Example:</strong> Mindfulness & Stress Management (Wellbeing) or Public Speaking for Confidence (Leadership).</p>
-                    <p><strong>Ideal For:</strong> Taster sessions, enrichment days, or quick interventions.</p>
-                </div>
-                <div class="package">
-                    <h4>⚡ Half-Day Workshop</h4>
-                    <p><strong>Length:</strong> 3–4 hours</p>
-                    <p><strong>Purpose:</strong> More interactive, allowing for deeper exploration, practical activities, and reflection.</p>
-                    <p><strong>Example:</strong> Creative Expression Through Art (Arts) delivered with both guided practice and a showcase element.</p>
-                    <p><strong>Ideal For:</strong> School off-timetable days, PSHE days, or small group interventions.</p>
-                </div>
-                <div class="package">
-                    <h4>⚡ Themed Full Day / Workshop Series</h4>
-                    <p><strong>Length:</strong> 1 full day OR 3–4 sessions across a term</p>
-                    <p><strong>Purpose:</strong> Provides a mini-journey within one pillar, building skills and confidence over time.</p>
-                    <p><strong>Example:</strong> Leadership in Action — teamwork, decision-making, and public speaking (Leadership); Healthy Body, Healthy Mind — fitness, resilience, and nutrition (Wellbeing).</p>
-                    <p><strong>Ideal For:</strong> Targeted cohorts, transition programmes, or pupils at risk of disengagement.</p>
-                </div>
-                <div class="package">
-                    <h4>⚡ Integrated Programme Workshops</h4>
-                    <p><strong>Length:</strong> Tailored over 6–12 weeks</p>
-                    <p><strong>Purpose:</strong> Workshops build into one of ElevatEd’s core programmes (Wellbeing, Leadership, Sport, Arts, Achievement).</p>
-                    <p><strong>Example:</strong> A 6-week Resilience Pathway with one workshop per week.</p>
-                    <p><strong>Ideal For:</strong> Sustained intervention, alternative provision placements, or school partnerships.</p>
-                </div>
-            </div>
+        <div class="callout content-section">
+            <h3>Partner with ElevatEd</h3>
+            <p>We provide schools with a flexible, wellbeing-focused alternative provision for learners aged 11–14. Through personalised programmes across our five pillars—Wellbeing, Leadership, Sport, Arts, and Achievement—we re-engage pupils, improve attendance, and build confidence, helping every young person thrive.</p>
         </div>
     </div>
 </body>
