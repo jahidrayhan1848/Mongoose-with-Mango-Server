@@ -1,100 +1,199 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Elevate Nutrition Coaching</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROGRAMMES | ElevatEd</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f8f9fa;
+  color: #1a1a1a;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+p.intro {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+
+/* Programme section styles */
+.programme-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+.programme-section:nth-child(odd) {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  flex-direction: row;
+}
+
+.programme-section:nth-child(even) {
+  background: linear-gradient(135deg, #fc5c7d 0%, #6a82fb 100%);
+  flex-direction: row-reverse;
+}
+
+.programme-content {
+  max-width: 600px;
+  text-align: left;
+}
+
+.programme-content h2 {
+  font-size: 2.2em;
+  margin-bottom: 15px;
+}
+
+.programme-content p.focus {
+  font-style: italic;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+.programme-content ul {
+  text-align: left;
+  list-style-type: disc;
+  padding-left: 25px;
+  line-height: 1.6;
+  font-size: 1em;
+}
+
+.programme-icon {
+  font-size: 5em;
+  margin: 0 50px;
+  flex-shrink: 0;
+  transition: transform 0.4s;
+}
+
+.programme-section:hover .programme-icon {
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media(max-width: 900px){
+  .programme-section {
+    flex-direction: column;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .programme-section:nth-child(even){
+    flex-direction: column;
+  }
+
+  .programme-content {
+    max-width: 100%;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .programme-icon {
+    margin: 0 0 20px 0;
+  }
+
+  .programme-content ul {
+    padding-left: 20px;
+  }
+}
+</style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-emerald-100 text-slate-800">
-  <main class="max-w-6xl mx-auto py-14 px-6">
-    <!-- Header -->
-    <header class="text-center mb-14">
-      <h1 class="text-4xl font-extrabold text-emerald-900">Elevate Nutrition Coaching</h1>
-      <p class="mt-3 text-slate-600 max-w-3xl mx-auto">Transform your relationship with food through personalized strategies, practical tips, and ongoing motivation to help you thrive.</p>
-    </header>
+<body>
 
-    <!-- Program Features -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-bold text-slate-900 text-center mb-10">Program Features</h2>
-      <div class="grid gap-8 md:grid-cols-2">
-        <div class="bg-white rounded-2xl shadow-lg p-7 border border-emerald-100">
-          <h3 class="text-xl font-semibold mb-3 text-emerald-800">Personalized Nutrition Assessment</h3>
-          <p class="text-slate-600">Evaluation of your current eating habits, dietary preferences, lifestyle, and nutritional needs to tailor recommendations.</p>
-        </div>
+<div class="container">
+  <h1>PROGRAMMES</h1>
+  <p class="intro">The ElevatEd programme is built around five pillars: Wellbeing, Leadership, Sport, Arts, and Achievement. Together they reflect our holistic approach.</p>
+</div>
 
-        <div class="bg-white rounded-2xl shadow-lg p-7 border border-emerald-100">
-          <h3 class="text-xl font-semibold mb-3 text-emerald-800">Meal Planning</h3>
-          <p class="text-slate-600">Sharing information about healthy food groups, portion sizes, and dietary guidelines, and recommending healthy recipes that are easy to make and affordable.</p>
-        </div>
+<div class="programme-section">
+  <div class="programme-icon">🌱</div>
+  <div class="programme-content">
+    <h2>Wellbeing Programme</h2>
+    <p class="focus">Focus: Physical, mental, and emotional health.</p>
+    <ul>
+      <li>Breathwork, mindfulness and resilience workshops</li>
+      <li>Nutrition and fitness guidance</li>
+      <li>Positive mindset and self-care practices</li>
+    </ul>
+  </div>
+</div>
 
-        <div class="bg-white rounded-2xl shadow-lg p-7 border border-emerald-100">
-          <h3 class="text-xl font-semibold mb-3 text-emerald-800">Behavior Change Support</h3>
-          <p class="text-slate-600">Strategies to establish and sustain healthy eating habits, overcome emotional or mindless eating, and create lasting lifestyle changes.</p>
-        </div>
+<div class="programme-section">
+  <div class="programme-icon">🌟</div>
+  <div class="programme-content">
+    <h2>Leadership Programme</h2>
+    <p class="focus">Focus: Building confident, responsible leaders.</p>
+    <ul>
+      <li>Public speaking and communication skills</li>
+      <li>Team-building and mentoring opportunities</li>
+      <li>Ethical decision-making and social responsibility</li>
+    </ul>
+  </div>
+</div>
 
-        <div class="bg-white rounded-2xl shadow-lg p-7 border border-emerald-100">
-          <h3 class="text-xl font-semibold mb-3 text-emerald-800">Meal Preparation & Cooking Tips</h3>
-          <p class="text-slate-600">Practical advice on meal prep, healthy cooking techniques, and incorporating more whole foods into your diet.</p>
-        </div>
+<div class="programme-section">
+  <div class="programme-icon">🏅</div>
+  <div class="programme-content">
+    <h2>Sport Programme</h2>
+    <p class="focus">Focus: Growth through physical activity and teamwork.</p>
+    <ul>
+      <li>Competitive and recreational sports</li>
+      <li>Skill development and coaching</li>
+      <li>Lessons in discipline, teamwork, and perseverance</li>
+    </ul>
+  </div>
+</div>
 
-        <div class="bg-white rounded-2xl shadow-lg p-7 border border-emerald-100">
-          <h3 class="text-xl font-semibold mb-3 text-emerald-800">Tracking & Accountability</h3>
-          <p class="text-slate-600">Use of food journals, apps, or online tools to monitor intake, moods, and progress, with regular check-ins to evaluate success and make adjustments.</p>
-        </div>
+<div class="programme-section">
+  <div class="programme-icon">🎨</div>
+  <div class="programme-content">
+    <h2>Arts Programme</h2>
+    <p class="focus">Focus: Creativity, expression, and cultural enrichment.</p>
+    <ul>
+      <li>Visual arts, music, drama, and dance</li>
+      <li>Creative showcases and exhibitions</li>
+      <li>Opportunities to explore and refine artistic talents</li>
+    </ul>
+  </div>
+</div>
 
-        <div class="bg-white rounded-2xl shadow-lg p-7 border border-emerald-100">
-          <h3 class="text-xl font-semibold mb-3 text-emerald-800">Support for Specific Goals</h3>
-          <p class="text-slate-600">Guidance tailored to weight management, managing food sensitivities, improving energy levels, or optimizing gut health.</p>
-        </div>
+<div class="programme-section">
+  <div class="programme-icon">🎓</div>
+  <div class="programme-content">
+    <h2>Achievement Programme</h2>
+    <p class="focus">Focus: Academic excellence and personal success.</p>
+    <ul>
+      <li>Study skills and enrichment opportunities</li>
+      <li>Recognition of milestones and achievements</li>
+      <li>Encouragement of lifelong learning and ambition</li>
+    </ul>
+  </div>
+</div>
 
-        <div class="bg-white rounded-2xl shadow-lg p-7 border border-emerald-100">
-          <h3 class="text-xl font-semibold mb-3 text-emerald-800">Addressing Challenges</h3>
-          <p class="text-slate-600">Identifying barriers to healthy eating, such as stress, emotional triggers, or social situations, and developing strategies to overcome them.</p>
-        </div>
-
-        <div class="bg-white rounded-2xl shadow-lg p-7 border border-emerald-100">
-          <h3 class="text-xl font-semibold mb-3 text-emerald-800">Motivational Coaching</h3>
-          <p class="text-slate-600">Encouragement, motivation, and accountability to keep you engaged and committed to your health journey.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Membership Program -->
-    <section>
-      <h2 class="text-2xl font-bold text-slate-900 text-center mb-10">Monthly Membership Program Includes</h2>
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <div class="bg-emerald-700 text-white rounded-2xl shadow-lg p-7">
-          <h3 class="text-lg font-semibold mb-2">Monthly Health Coach Session</h3>
-          <p class="text-sm opacity-90">Personalized one-on-one coaching sessions to track progress and set new goals.</p>
-        </div>
-
-        <div class="bg-emerald-700 text-white rounded-2xl shadow-lg p-7">
-          <h3 class="text-lg font-semibold mb-2">Nutritious Recipes & Meal Planning</h3>
-          <p class="text-sm opacity-90">Access to healthy recipes, meal planning resources, and meal prep strategies.</p>
-        </div>
-
-        <div class="bg-emerald-700 text-white rounded-2xl shadow-lg p-7">
-          <h3 class="text-lg font-semibold mb-2">Food & Mood Journals</h3>
-          <p class="text-sm opacity-90">Track eating habits and emotional health to better understand patterns and triggers.</p>
-        </div>
-
-        <div class="bg-emerald-700 text-white rounded-2xl shadow-lg p-7">
-          <h3 class="text-lg font-semibold mb-2">Engaging Challenges</h3>
-          <p class="text-sm opacity-90">Participate in fun challenges designed to keep you motivated and on track.</p>
-        </div>
-
-        <div class="bg-emerald-700 text-white rounded-2xl shadow-lg p-7">
-          <h3 class="text-lg font-semibold mb-2">Ongoing Support</h3>
-          <p class="text-sm opacity-90">Stay connected through secure messaging with your coach between sessions.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="mt-16 text-center bg-slate-900 text-white py-10 rounded-2xl shadow-lg">
-      <p class="max-w-3xl mx-auto text-sm leading-relaxed">Elevate Nutrition Coaching is designed to empower you with the knowledge, tools, and motivation to transform your nutrition habits. For personalized guidance aligned with your unique health needs, always consult a qualified healthcare professional.</p>
-    </footer>
-  </main>
 </body>
 </html>
