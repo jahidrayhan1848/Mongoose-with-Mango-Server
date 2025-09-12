@@ -3,195 +3,279 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PROGRAMMES | ElevatEd</title>
+<title>Workshops | ElevatEd</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #f8f9fa;
+  background: #fff;
   color: #1a1a1a;
+  line-height: 1.5;
 }
 
-h1, h2 {
-  margin: 0;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 20px;
+/* Page Header */
+.header {
+  padding: 60px 20px;
   text-align: center;
+  background: #f0f4f9;
 }
-
-h1 {
-  font-size: 3em;
+.header h1 {
+  font-size: 2.5em;
+  margin: 0;
   color: #222;
-  margin-bottom: 20px;
 }
-
-p.intro {
-  font-size: 1.2em;
-  color: #555;
-  margin-bottom: 60px;
-  line-height: 1.6;
-}
-
-/* Programme section styles */
-.programme-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 100px 20px;
-  position: relative;
-  overflow: hidden;
-  color: #fff;
-}
-
-.programme-section:nth-child(odd) {
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  flex-direction: row;
-}
-
-.programme-section:nth-child(even) {
-  background: linear-gradient(135deg, #fc5c7d 0%, #6a82fb 100%);
-  flex-direction: row-reverse;
-}
-
-.programme-content {
-  max-width: 600px;
-  text-align: left;
-}
-
-.programme-content h2 {
-  font-size: 2.2em;
-  margin-bottom: 15px;
-}
-
-.programme-content p.focus {
-  font-style: italic;
+.header p {
   font-size: 1.1em;
-  margin-bottom: 20px;
-  opacity: 0.85;
+  color: #555;
+  margin-top: 10px;
 }
 
-.programme-content ul {
-  text-align: left;
+/* Compact Timeline */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  background: #d9e2ec;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+.entry {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.entry .icon {
+  position: absolute;
+  top: 15px;
+  width: 36px;
+  height: 36px;
+  background: #2575fc;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.left {
+  left: 0;
+  text-align: right;
+}
+.right {
+  left: 50%;
+}
+.left .icon { right: -18px; }
+.right .icon { left: -18px; }
+
+.entry-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.entry-content h3 {
+  margin-top: 0;
+  font-size: 1.1em;
+  color: #2575fc;
+}
+.entry-content ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
   list-style-type: disc;
-  padding-left: 25px;
-  line-height: 1.6;
-  font-size: 1em;
+  font-size: 0.95em;
+  color: #444;
 }
 
-.programme-icon {
-  font-size: 5em;
-  margin: 0 50px;
-  flex-shrink: 0;
-  transition: transform 0.4s;
+/* Packages Flow */
+.packages {
+  background: #f9fafc;
+  padding: 60px 20px;
 }
-
-.programme-section:hover .programme-icon {
-  transform: scale(1.2);
+.packages h2 {
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 40px;
+  color: #222;
+}
+.package-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+.package {
+  flex: 1 1 220px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+.package:hover {
+  transform: translateY(-5px);
+}
+.package h4 {
+  margin: 0 0 10px;
+  font-size: 1.1em;
+  color: #2575fc;
+}
+.package ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.9em;
+  color: #444;
+}
+.package .example {
+  margin-top: 8px;
+  font-style: italic;
+  font-size: 0.85em;
+  color: #666;
 }
 
 /* Responsive */
-@media(max-width: 900px){
-  .programme-section {
-    flex-direction: column;
-    padding: 60px 20px;
-    text-align: center;
-  }
-
-  .programme-section:nth-child(even){
-    flex-direction: column;
-  }
-
-  .programme-content {
-    max-width: 100%;
-    margin-top: 30px;
-    text-align: center;
-  }
-
-  .programme-icon {
-    margin: 0 0 20px 0;
-  }
-
-  .programme-content ul {
-    padding-left: 20px;
-  }
+@media(max-width: 768px) {
+  .timeline::before { left: 12px; }
+  .entry { width: 100%; padding-left: 50px; text-align: left; }
+  .entry .icon { left: 0; right: auto; }
+  .package-flow { flex-direction: column; }
 }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>PROGRAMMES</h1>
-  <p class="intro">The ElevatEd programme is built around five pillars: Wellbeing, Leadership, Sport, Arts, and Achievement. Together they reflect our holistic approach.</p>
+<!-- Page Header -->
+<div class="header">
+  <h1>Workshops</h1>
+  <p>Skills-focused workshops across Wellbeing, Leadership, Sport, Arts, and Achievement.</p>
 </div>
 
-<div class="programme-section">
-  <div class="programme-icon">🌱</div>
-  <div class="programme-content">
-    <h2>Wellbeing Programme</h2>
-    <p class="focus">Focus: Physical, mental, and emotional health.</p>
-    <ul>
-      <li>Breathwork, mindfulness and resilience workshops</li>
-      <li>Nutrition and fitness guidance</li>
-      <li>Positive mindset and self-care practices</li>
-    </ul>
+<!-- Compact Timeline Workshops -->
+<div class="timeline">
+
+  <div class="entry left">
+    <div class="icon">🌱</div>
+    <div class="entry-content">
+      <h3>Wellbeing Programme</h3>
+      <ul>
+        <li>Breathwork Mindfulness & Stress Management</li>
+        <li>Healthy Habits — Sleep, Nutrition & Movement</li>
+        <li>Building Emotional Resilience</li>
+        <li>Positive Self-Talk & Growth Mindset</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="entry right">
+    <div class="icon">🌟</div>
+    <div class="entry-content">
+      <h3>Leadership Programme</h3>
+      <ul>
+        <li>Public Speaking & Presentation Skills</li>
+        <li>Teamwork & Collaboration</li>
+        <li>Decision-Making & Problem-Solving</li>
+        <li>Leading with Empathy</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="entry left">
+    <div class="icon">🏅</div>
+    <div class="entry-content">
+      <h3>Sport Programme</h3>
+      <ul>
+        <li>Team Sports & Fair Play</li>
+        <li>Fitness for Confidence</li>
+        <li>Discipline Through Training</li>
+        <li>Mindset of an Athlete</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="entry right">
+    <div class="icon">🎨</div>
+    <div class="entry-content">
+      <h3>Arts Programme</h3>
+      <ul>
+        <li>Creative Expression Through Art</li>
+        <li>Drama & Confidence on Stage</li>
+        <li>Music for Wellbeing</li>
+        <li>Exploring Identity Through Creativity</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="entry left">
+    <div class="icon">🎓</div>
+    <div class="entry-content">
+      <h3>Achievement Programme</h3>
+      <ul>
+        <li>Study Skills & Time Management</li>
+        <li>Setting Goals & Tracking Progress</li>
+        <li>Celebrating Achievements & Building Pride</li>
+        <li>Overcoming Challenges & Staying Motivated</li>
+      </ul>
+    </div>
   </div>
 </div>
 
-<div class="programme-section">
-  <div class="programme-icon">🌟</div>
-  <div class="programme-content">
-    <h2>Leadership Programme</h2>
-    <p class="focus">Focus: Building confident, responsible leaders.</p>
-    <ul>
-      <li>Public speaking and communication skills</li>
-      <li>Team-building and mentoring opportunities</li>
-      <li>Ethical decision-making and social responsibility</li>
-    </ul>
-  </div>
-</div>
+<!-- Packages Flow -->
+<div class="packages">
+  <h2>Workshop Packages</h2>
+  <div class="package-flow">
 
-<div class="programme-section">
-  <div class="programme-icon">🏅</div>
-  <div class="programme-content">
-    <h2>Sport Programme</h2>
-    <p class="focus">Focus: Growth through physical activity and teamwork.</p>
-    <ul>
-      <li>Competitive and recreational sports</li>
-      <li>Skill development and coaching</li>
-      <li>Lessons in discipline, teamwork, and perseverance</li>
-    </ul>
-  </div>
-</div>
+    <div class="package">
+      <h4>1. Single Session</h4>
+      <ul>
+        <li>Length: 60–120 minutes</li>
+        <li>Purpose: Standalone, focused on one theme.</li>
+        <li>Ideal For: Taster sessions, enrichment days.</li>
+      </ul>
+      <p class="example">Example: Mindfulness & Stress Management, or Public Speaking for Confidence.</p>
+    </div>
 
-<div class="programme-section">
-  <div class="programme-icon">🎨</div>
-  <div class="programme-content">
-    <h2>Arts Programme</h2>
-    <p class="focus">Focus: Creativity, expression, and cultural enrichment.</p>
-    <ul>
-      <li>Visual arts, music, drama, and dance</li>
-      <li>Creative showcases and exhibitions</li>
-      <li>Opportunities to explore and refine artistic talents</li>
-    </ul>
-  </div>
-</div>
+    <div class="package">
+      <h4>2. Half-Day Workshop</h4>
+      <ul>
+        <li>Length: 3–4 hours</li>
+        <li>Purpose: Interactive, deeper exploration.</li>
+        <li>Ideal For: Off-timetable or PSHE days.</li>
+      </ul>
+      <p class="example">Example: Creative Expression Through Art with showcase.</p>
+    </div>
 
-<div class="programme-section">
-  <div class="programme-icon">🎓</div>
-  <div class="programme-content">
-    <h2>Achievement Programme</h2>
-    <p class="focus">Focus: Academic excellence and personal success.</p>
-    <ul>
-      <li>Study skills and enrichment opportunities</li>
-      <li>Recognition of milestones and achievements</li>
-      <li>Encouragement of lifelong learning and ambition</li>
-    </ul>
+    <div class="package">
+      <h4>3. Themed Full Day / Series</h4>
+      <ul>
+        <li>Length: 1 day OR 3–4 sessions</li>
+        <li>Purpose: Build confidence over time.</li>
+        <li>Ideal For: Transition programmes, cohorts.</li>
+      </ul>
+      <p class="example">Example: Leadership in Action or Healthy Body, Healthy Mind.</p>
+    </div>
+
+    <div class="package">
+      <h4>4. Integrated Programme</h4>
+      <ul>
+        <li>Length: 6–12 weeks</li>
+        <li>Purpose: Build into ElevatEd’s core pillars.</li>
+        <li>Ideal For: Sustained intervention, partnerships.</li>
+      </ul>
+      <p class="example">Example: A 6-week Resilience Pathway.</p>
+    </div>
+
   </div>
 </div>
 

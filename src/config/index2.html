@@ -3,229 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programmes - ElevatEd</title>
+    <title>Workshops - ElevatEd</title>
     <style>
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background-color: #fafafa;
-            color: #1a1a1a;
+            background-color: #0f172a;
+            color: #e2e8f0;
             line-height: 1.7;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
         }
         .header {
             text-align: center;
             padding: 80px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
             color: white;
             position: relative;
-            overflow: hidden;
-        }
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-        .header-content {
-            position: relative;
-            z-index: 1;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
         }
         .header h1 {
             font-size: 3.5rem;
-            font-weight: 700;
-            margin: 0 0 20px;
+            font-weight: 800;
+            margin: 0 0 15px;
             letter-spacing: -0.02em;
+            text-transform: uppercase;
         }
         .header p {
-            font-size: 1.25rem;
-            max-width: 700px;
+            font-size: 1.2rem;
+            max-width: 600px;
             margin: 0 auto;
-            opacity: 0.95;
+            opacity: 0.9;
         }
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+        .section {
+            margin: 60px 0;
         }
-        .pillar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 40px 30px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 30px;
             position: relative;
-            overflow: hidden;
+            display: inline-block;
         }
-        .pillar::before {
+        .section h2::after {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: -5px;
             left: 0;
-            width: 100%;
+            width: 60%;
             height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #3b82f6, #ec4899);
         }
+        .pillar-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .pillar {
+            position: relative;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s ease forwards;
+        }
+        .pillar:nth-child(1) { animation-delay: 0.1s; }
+        .pillar:nth-child(2) { animation-delay: 0.2s; }
+        .pillar:nth-child(3) { animation-delay: 0.3s; }
+        .pillar:nth-child(4) { animation-delay: 0.4s; }
+        .pillar:nth-child(5) { animation-delay: 0.5s; }
         .pillar:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: rgba(102, 126, 234, 0.3);
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
         }
         .pillar-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-            text-align: center;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
+            font-size: 2.8rem;
+            color: #3b82f6;
+            margin-bottom: 15px;
         }
-        .pillar:hover .pillar-icon {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-        .pillar-content h3 {
-            font-size: 1.75rem;
+        .pillar h3 {
+            font-size: 1.8rem;
             font-weight: 600;
+            color: #fff;
             margin: 0 0 15px;
-            color: #1a1a1a;
-            letter-spacing: -0.01em;
         }
-        .pillar-content .focus {
-            font-size: 1rem;
-            color: #667eea;
-            font-weight: 500;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-        .pillar-content .focus::before {
-            content: '→';
-            margin-right: 8px;
-            color: #764ba2;
-        }
-        .pillar-content ul {
+        .pillar ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        .pillar-content li {
-            margin: 12px 0;
+        .pillar li {
+            font-size: 1rem;
+            color: #e2e8f0;
+            margin: 10px 0;
             padding-left: 20px;
             position: relative;
-            font-size: 0.98rem;
-            color: #4a4a4a;
         }
-        .pillar-content li::before {
-            content: '▹';
+        .pillar li::before {
+            content: '▸';
             position: absolute;
             left: 0;
-            color: #667eea;
-            font-weight: bold;
+            color: #ec4899;
+        }
+        .package-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .package {
+            flex: 1 1 300px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s ease forwards;
+        }
+        .package:nth-child(1) { animation-delay: 0.6s; }
+        .package:nth-child(2) { animation-delay: 0.7s; }
+        .package:nth-child(3) { animation-delay: 0.8s; }
+        .package:nth-child(4) { animation-delay: 0.9s; }
+        .package:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .package h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 0 0 15px;
+        }
+        .package p {
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            margin: 8px 0;
+        }
+        .package strong {
+            color: #3b82f6;
+        }
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2.5rem;
             }
             .header p {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
-            .pillars-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                margin-top: 40px;
+            .section h2 {
+                font-size: 2rem;
             }
-            .pillar {
-                padding: 30px 20px;
+            .pillar h3 {
+                font-size: 1.5rem;
+            }
+            .package {
+                flex: 1 1 100%;
             }
         }
         @media (prefers-reduced-motion: reduce) {
-            .pillar {
+            .pillar, .package {
                 transition: none;
-            }
-            .pillar:hover {
-                transform: none;
+                animation: none;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header">
-        <div class="header-content">
-            <h1>Our Programmes</h1>
-            <p>The ElevatEd programme is built around five pillars: Wellbeing, Leadership, Sport, Arts, and Achievement. Together they reflect our holistic approach.</p>
-        </div>
+        <h1>Our Workshops</h1>
+        <p>Explore our dynamic workshops designed to empower and inspire across the five ElevatEd pillars.</p>
     </div>
     <div class="container">
-        <div class="pillars-grid">
-            <div class="pillar">
-                <span class="pillar-icon">🌱</span>
-                <div class="pillar-content">
+        <div class="section">
+            <h2>Pillar Workshops</h2>
+            <div class="pillar-group">
+                <div class="pillar">
+                    <div class="pillar-icon">🌱</div>
                     <h3>Wellbeing Programme</h3>
-                    <p class="focus">Physical, mental, and emotional health</p>
                     <ul>
-                        <li>Breathwork, mindfulness, and resilience workshops</li>
-                        <li>Nutrition and fitness guidance</li>
-                        <li>Positive mindset and self-care practices</li>
+                        <li>Workshop: Breathwork Mindfulness & Stress Management</li>
+                        <li>Workshop: Healthy Habits — Sleep, Nutrition & Movement</li>
+                        <li>Workshop: Building Emotional Resilience</li>
+                        <li>Workshop: Positive Self-Talk & Growth Mindset</li>
                     </ul>
                 </div>
-            </div>
-            <div class="pillar">
-                <span class="pillar-icon">🌟</span>
-                <div class="pillar-content">
+                <div class="pillar">
+                    <div class="pillar-icon">🌟</div>
                     <h3>Leadership Programme</h3>
-                    <p class="focus">Building confident, responsible leaders</p>
                     <ul>
-                        <li>Public speaking and communication skills</li>
-                        <li>Team-building and mentoring opportunities</li>
-                        <li>Ethical decision-making and social responsibility</li>
+                        <li>Workshop: Public Speaking & Presentation Skills</li>
+                        <li>Workshop: Teamwork & Collaboration</li>
+                        <li>Workshop: Decision-Making & Problem-Solving</li>
+                        <li>Workshop: Leading with Empathy</li>
                     </ul>
                 </div>
-            </div>
-            <div class="pillar">
-                <span class="pillar-icon">🏅</span>
-                <div class="pillar-content">
+                <div class="pillar">
+                    <div class="pillar-icon">🏅</div>
                     <h3>Sport Programme</h3>
-                    <p class="focus">Growth through physical activity and teamwork</p>
                     <ul>
-                        <li>Competitive and recreational sports</li>
-                        <li>Skill development and coaching</li>
-                        <li>Lessons in discipline, teamwork, and perseverance</li>
+                        <li>Workshop: Team Sports & Fair Play</li>
+                        <li>Workshop: Fitness for Confidence</li>
+                        <li>Workshop: Discipline Through Training</li>
+                        <li>Workshop: Mindset of an Athlete</li>
                     </ul>
                 </div>
-            </div>
-            <div class="pillar">
-                <span class="pillar-icon">🎨</span>
-                <div class="pillar-content">
+                <div class="pillar">
+                    <div class="pillar-icon">🎨</div>
                     <h3>Arts Programme</h3>
-                    <p class="focus">Creativity, expression, and cultural enrichment</p>
                     <ul>
-                        <li>Visual arts, music, drama, and dance</li>
-                        <li>Creative showcases and exhibitions</li>
-                        <li>Opportunities to explore and refine artistic talents</li>
+                        <li>Workshop: Creative Expression Through Art</li>
+                        <li>Workshop: Drama & Confidence on Stage</li>
+                        <li>Workshop: Music for Wellbeing</li>
+                        <li>Workshop: Exploring Identity Through Creativity</li>
+                    </ul>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">🎓</div>
+                    <h3>Achievement Programme</h3>
+                    <ul>
+                        <li>Workshop: Study Skills & Time Management</li>
+                        <li>Workshop: Setting Goals & Tracking Progress</li>
+                        <li>Workshop: Celebrating Achievements & Building Pride</li>
+                        <li>Workshop: Overcoming Challenges & Staying Motivated</li>
                     </ul>
                 </div>
             </div>
-            <div class="pillar">
-                <span class="pillar-icon">🎓</span>
-                <div class="pillar-content">
-                    <h3>Achievement Programme</h3>
-                    <p class="focus">Academic excellence and personal success</p>
-                    <ul>
-                        <li>Study skills and enrichment opportunities</li>
-                        <li>Recognition of milestones and achievements</li>
-                        <li>Encouragement of lifelong learning and ambition</li>
-                    </ul>
+        </div>
+        <div class="section">
+            <h2>Workshop Packages</h2>
+            <div class="package-group">
+                <div class="package">
+                    <h4>⚡ Single Session</h4>
+                    <p><strong>Length:</strong> 60–120 minutes</p>
+                    <p><strong>Purpose:</strong> Standalone, focused on one skill or theme.</p>
+                    <p><strong>Example:</strong> Mindfulness & Stress Management (Wellbeing) or Public Speaking for Confidence (Leadership).</p>
+                    <p><strong>Ideal For:</strong> Taster sessions, enrichment days, or quick interventions.</p>
+                </div>
+                <div class="package">
+                    <h4>⚡ Half-Day Workshop</h4>
+                    <p><strong>Length:</strong> 3–4 hours</p>
+                    <p><strong>Purpose:</strong> More interactive, allowing for deeper exploration, practical activities, and reflection.</p>
+                    <p><strong>Example:</strong> Creative Expression Through Art (Arts) delivered with both guided practice and a showcase element.</p>
+                    <p><strong>Ideal For:</strong> School off-timetable days, PSHE days, or small group interventions.</p>
+                </div>
+                <div class="package">
+                    <h4>⚡ Themed Full Day / Workshop Series</h4>
+                    <p><strong>Length:</strong> 1 full day OR 3–4 sessions across a term</p>
+                    <p><strong>Purpose:</strong> Provides a mini-journey within one pillar, building skills and confidence over time.</p>
+                    <p><strong>Example:</strong> Leadership in Action — teamwork, decision-making, and public speaking (Leadership); Healthy Body, Healthy Mind — fitness, resilience, and nutrition (Wellbeing).</p>
+                    <p><strong>Ideal For:</strong> Targeted cohorts, transition programmes, or pupils at risk of disengagement.</p>
+                </div>
+                <div class="package">
+                    <h4>⚡ Integrated Programme Workshops</h4>
+                    <p><strong>Length:</strong> Tailored over 6–12 weeks</p>
+                    <p><strong>Purpose:</strong> Workshops build into one of ElevatEd’s core programmes (Wellbeing, Leadership, Sport, Arts, Achievement).</p>
+                    <p><strong>Example:</strong> A 6-week Resilience Pathway with one workshop per week.</p>
+                    <p><strong>Ideal For:</strong> Sustained intervention, alternative provision placements, or school partnerships.</p>
                 </div>
             </div>
         </div>
