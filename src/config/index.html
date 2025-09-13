@@ -1,283 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Workshops | ElevatEd</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Site Navigation — Services Menu</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  /* Basic reset & typography */
+  *{box-sizing:border-box}
+  body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial; margin:0; color:#102a43;}
+  a{color:inherit; text-decoration:none}
+  header{background:#ffffff; border-bottom:1px solid #e6eef6; padding:12px 20px; position:sticky; top:0; z-index:1000;}
+  .container{max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:18px; justify-content:space-between;}
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #fff;
-  color: #1a1a1a;
-  line-height: 1.5;
-}
+  /* Brand */
+  .brand{display:flex; align-items:center; gap:12px;}
+  .logo{width:44px; height:44px; border-radius:8px; background:#f2f9ff; display:flex; align-items:center; justify-content:center; font-weight:700; color:#0b66a3;}
+  .brand h1{font-size:18px; margin:0; letter-spacing:0.2px;}
 
-/* Page Header */
-.header {
-  padding: 60px 20px;
-  text-align: center;
-  background: #f0f4f9;
-}
-.header h1 {
-  font-size: 2.5em;
-  margin: 0;
-  color: #222;
-}
-.header p {
-  font-size: 1.1em;
-  color: #555;
-  margin-top: 10px;
-}
+  /* Desktop nav */
+  nav{display:flex; align-items:center; gap:18px;}
+  .nav-links{display:flex; gap:10px; align-items:center;}
+  .nav-links > a{padding:8px 10px; border-radius:6px; font-size:15px; color:#0b3b5a;}
+  .nav-cta{display:flex; gap:8px;}
+  .btn{padding:8px 14px; border-radius:8px; font-weight:600; cursor:pointer; border:1px solid transparent; background:#0b66a3; color:#fff}
+  .btn.secondary{background:transparent; color:#0b66a3; border:1px solid #d6e9fb}
 
-/* Compact Timeline */
-.timeline {
-  position: relative;
-  max-width: 900px;
-  margin: 50px auto;
-  padding: 0 20px;
-}
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  width: 2px;
-  background: #d9e2ec;
-  top: 0;
-  bottom: 0;
-  transform: translateX(-50%);
-}
-.entry {
-  position: relative;
-  width: 50%;
-  padding: 20px;
-  box-sizing: border-box;
-}
-.entry .icon {
-  position: absolute;
-  top: 15px;
-  width: 36px;
-  height: 36px;
-  background: #2575fc;
-  color: #fff;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.1em;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.left {
-  left: 0;
-  text-align: right;
-}
-.right {
-  left: 50%;
-}
-.left .icon { right: -18px; }
-.right .icon { left: -18px; }
+  /* Dropdown mega menu */
+  .menu-item{position:relative;}
+  .mega{
+    position:absolute;
+    left:0;
+    top:calc(100% + 10px);
+    width:760px;
+    background:#fff;
+    border:1px solid #e6eef6;
+    box-shadow:0 12px 30px rgba(12,40,70,0.08);
+    padding:18px;
+    display:none;
+    border-radius:8px;
+  }
+  .menu-item:focus-within .mega,
+  .menu-item:hover .mega{display:block;}
+  .mega-grid{display:flex; gap:28px;}
+  .mega-col{flex:1;}
+  .mega h3{margin:0 0 10px 0; font-size:15px; color:#0b3b5a;}
+  .mega ul{list-style:none; padding:0; margin:0; display:grid; gap:8px;}
+  .mega li a{display:block; padding:6px 8px; border-radius:6px; font-size:14px; color:#12314a;}
+  .mega li a:hover{background:#f3fbff;}
 
-.entry-content {
-  background: #fff;
-  border-radius: 8px;
-  padding: 15px 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-.entry-content h3 {
-  margin-top: 0;
-  font-size: 1.1em;
-  color: #2575fc;
-}
-.entry-content ul {
-  margin: 8px 0 0;
-  padding-left: 18px;
-  list-style-type: disc;
-  font-size: 0.95em;
-  color: #444;
-}
+  /* Footer subscription */
+  footer{background:#f8fbfd; padding:28px 20px; margin-top:40px;}
+  .footer-inner{max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; gap:20px; align-items:center;}
+  .subscribe{display:flex; gap:8px; align-items:center;}
+  .subscribe input[type="text"], .subscribe input[type="email"]{
+    padding:10px 12px; border-radius:8px; border:1px solid #e1eef8; min-width:180px;
+  }
 
-/* Packages Flow */
-.packages {
-  background: #f9fafc;
-  padding: 60px 20px;
-}
-.packages h2 {
-  text-align: center;
-  font-size: 1.8em;
-  margin-bottom: 40px;
-  color: #222;
-}
-.package-flow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-.package {
-  flex: 1 1 220px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
-}
-.package:hover {
-  transform: translateY(-5px);
-}
-.package h4 {
-  margin: 0 0 10px;
-  font-size: 1.1em;
-  color: #2575fc;
-}
-.package ul {
-  margin: 0;
-  padding-left: 18px;
-  font-size: 0.9em;
-  color: #444;
-}
-.package .example {
-  margin-top: 8px;
-  font-style: italic;
-  font-size: 0.85em;
-  color: #666;
-}
-
-/* Responsive */
-@media(max-width: 768px) {
-  .timeline::before { left: 12px; }
-  .entry { width: 100%; padding-left: 50px; text-align: left; }
-  .entry .icon { left: 0; right: auto; }
-  .package-flow { flex-direction: column; }
-}
+  /* Mobile */
+  .mobile-toggle{display:none; background:transparent; border:0; font-size:18px; cursor:pointer;}
+  @media (max-width:880px){
+    .nav-links, .nav-cta{display:none;}
+    .mobile-toggle{display:block;}
+    .mega{position:static; width:100%; box-shadow:none; border-radius:6px; margin-top:10px; display:none;}
+    .menu-item.open .mega{display:block;}
+    header{padding:12px;}
+    .footer-inner{flex-direction:column; align-items:stretch;}
+    .subscribe{justify-content:stretch; gap:10px}
+    .subscribe input{width:100%;}
+  }
+  /* small niceties */
+  .sr-only{position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;}
 </style>
 </head>
 <body>
 
-<!-- Page Header -->
-<div class="header">
-  <h1>Workshops</h1>
-  <p>Skills-focused workshops across Wellbeing, Leadership, Sport, Arts, and Achievement.</p>
-</div>
-
-<!-- Compact Timeline Workshops -->
-<div class="timeline">
-
-  <div class="entry left">
-    <div class="icon">🌱</div>
-    <div class="entry-content">
-      <h3>Wellbeing Programme</h3>
-      <ul>
-        <li>Breathwork Mindfulness & Stress Management</li>
-        <li>Healthy Habits — Sleep, Nutrition & Movement</li>
-        <li>Building Emotional Resilience</li>
-        <li>Positive Self-Talk & Growth Mindset</li>
-      </ul>
+<header>
+  <div class="container" role="banner">
+    <div class="brand" aria-hidden="false">
+      <div class="logo" aria-hidden="true">M</div>
+      <h1>Memorii</h1>
     </div>
+
+    <nav role="navigation" aria-label="Main navigation">
+      <button class="mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="mainNav">☰</button>
+
+      <div class="nav-links" id="mainNav">
+        <a href="#" aria-current="page">How it Works</a>
+        <a href="#">Templates</a>
+        <a href="#">Pricing</a>
+        <a href="#">Contact Us</a>
+
+        <!-- Services Mega Menu -->
+        <div class="menu-item" id="servicesMenu">
+          <a href="#" class="menu-trigger" aria-haspopup="true" aria-expanded="false">Services ▾</a>
+
+          <div class="mega" role="menu" aria-label="Services submenu">
+            <div class="mega-grid">
+              <!-- Column A: Things We Treat -->
+              <div class="mega-col">
+                <h3>Things We Treat</h3>
+                <ul>
+                  <li><a href="#" role="menuitem">Aging and prevention</a></li>
+                  <li><a href="#" role="menuitem">Overweight and Obesity</a></li>
+                  <li><a href="#" role="menuitem">Thyroid Disorders</a></li>
+                  <li><a href="#" role="menuitem">Hormone Imbalances: perimenopause, menopause, PCOS</a></li>
+                  <li><a href="#" role="menuitem">Digestive Problems: leaky gut, IBS, constipation, diarrhea, bloating, heartburn/acid reflux, food intolerances, and functional dyspepsia</a></li>
+                  <li><a href="#" role="menuitem">Autoimmune Diseases: Rheumatoid arthritis, lupus, and others</a></li>
+                  <li><a href="#" role="menuitem">Chronic Fatigue Syndrome</a></li>
+                  <li><a href="#" role="menuitem">Prediabetes</a></li>
+                  <li><a href="#" role="menuitem">Food Sensitivities</a></li>
+                  <li><a href="#" role="menuitem">Stress</a></li>
+                  <li><a href="#" role="menuitem">Long COVID</a></li>
+                </ul>
+              </div>
+
+              <!-- Column B: Services -->
+              <div class="mega-col">
+                <h3>Services</h3>
+                <ul>
+                  <li><a href="#" role="menuitem">Integrative Care Consultation and Ongoing Follow-up</a></li>
+                  <li><a href="#" role="menuitem">Weight Management (put weight solutions here)</a></li>
+                  <li><a href="#" role="menuitem">Hormone Replacement Therapy: HRT and BHRT</a></li>
+                  <li><a href="#" role="menuitem">Peptide Therapy</a></li>
+                  <li><a href="#" role="menuitem">NAD+</a></li>
+                  <li><a href="#" role="menuitem">Health Coaching</a></li>
+                  <li><a href="#" role="menuitem">Laboratory Services</a></li>
+                  <li><a href="#" role="menuitem">Supplements</a></li>
+                  <li><a href="#" role="menuitem">Prescription Services</a></li>
+                  <li><a href="#" role="menuitem">Disclaimer</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#">Log In</a>
+        <a href="#" class="btn">Get Started</a>
+      </div>
+
+      <!-- CTAs for larger screens -->
+      <div class="nav-cta" aria-hidden="true">
+        <a href="#" class="btn secondary">Log In</a>
+        <a href="#" class="btn">Get Started</a>
+      </div>
+    </nav>
   </div>
+</header>
 
-  <div class="entry right">
-    <div class="icon">🌟</div>
-    <div class="entry-content">
-      <h3>Leadership Programme</h3>
-      <ul>
-        <li>Public Speaking & Presentation Skills</li>
-        <li>Teamwork & Collaboration</li>
-        <li>Decision-Making & Problem-Solving</li>
-        <li>Leading with Empathy</li>
-      </ul>
+<main style="max-width:1100px;margin:28px auto;padding:0 20px;">
+  <section>
+    <h2 style="margin-top:0">Example page content</h2>
+    <p>This navigation demonstrates the requested structure: <strong>Services</strong> contains two submenus — <em>Things We Treat</em> and <em>Services</em>. Replace <code>#</code> links with real URLs for each page.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong>Join our newsletter</strong>
+      <p style="margin:6px 0 0 0;color:#365d7a;font-size:14px">Get updates — we only ask for first name and email.</p>
     </div>
+
+    <form class="subscribe" id="subscribeForm" onsubmit="event.preventDefault(); subscribe();">
+      <label class="sr-only" for="firstName">First name</label>
+      <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+
+      <label class="sr-only" for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Email address" required>
+
+      <button type="submit" class="btn">Subscribe</button>
+    </form>
   </div>
+</footer>
 
-  <div class="entry left">
-    <div class="icon">🏅</div>
-    <div class="entry-content">
-      <h3>Sport Programme</h3>
-      <ul>
-        <li>Team Sports & Fair Play</li>
-        <li>Fitness for Confidence</li>
-        <li>Discipline Through Training</li>
-        <li>Mindset of an Athlete</li>
-      </ul>
-    </div>
-  </div>
+<script>
+  // Mobile nav toggle
+  const mobileToggle = document.getElementById('mobileToggle');
+  const mainNav = document.getElementById('mainNav');
+  const servicesMenu = document.getElementById('servicesMenu');
 
-  <div class="entry right">
-    <div class="icon">🎨</div>
-    <div class="entry-content">
-      <h3>Arts Programme</h3>
-      <ul>
-        <li>Creative Expression Through Art</li>
-        <li>Drama & Confidence on Stage</li>
-        <li>Music for Wellbeing</li>
-        <li>Exploring Identity Through Creativity</li>
-      </ul>
-    </div>
-  </div>
+  mobileToggle.addEventListener('click', () => {
+    const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+    mobileToggle.setAttribute('aria-expanded', String(!expanded));
+    if (mainNav.style.display === 'flex' || mainNav.style.display === 'block'){
+      mainNav.style.display = '';
+    } else {
+      mainNav.style.display = 'block';
+      mainNav.style.flexDirection = 'column';
+    }
+  });
 
-  <div class="entry left">
-    <div class="icon">🎓</div>
-    <div class="entry-content">
-      <h3>Achievement Programme</h3>
-      <ul>
-        <li>Study Skills & Time Management</li>
-        <li>Setting Goals & Tracking Progress</li>
-        <li>Celebrating Achievements & Building Pride</li>
-        <li>Overcoming Challenges & Staying Motivated</li>
-      </ul>
-    </div>
-  </div>
-</div>
+  // Make Services openable on mobile by tapping
+  servicesMenu.querySelector('.menu-trigger').addEventListener('click', function(e){
+    const isMobile = window.matchMedia('(max-width:880px)').matches;
+    if (isMobile) {
+      e.preventDefault();
+      servicesMenu.classList.toggle('open');
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+    }
+  });
 
-<!-- Packages Flow -->
-<div class="packages">
-  <h2>Workshop Packages</h2>
-  <div class="package-flow">
+  // Simple subscribe handler (placeholder)
+  function subscribe(){
+    const first = document.getElementById('firstName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if(!first || !email) return alert('Please enter first name and email.');
+    // TODO: replace with real form submission / API call
+    alert('Thanks, ' + first + '! (This is a demo — wire up real submission.)');
+    document.getElementById('subscribeForm').reset();
+  }
 
-    <div class="package">
-      <h4>1. Single Session</h4>
-      <ul>
-        <li>Length: 60–120 minutes</li>
-        <li>Purpose: Standalone, focused on one theme.</li>
-        <li>Ideal For: Taster sessions, enrichment days.</li>
-      </ul>
-      <p class="example">Example: Mindfulness & Stress Management, or Public Speaking for Confidence.</p>
-    </div>
-
-    <div class="package">
-      <h4>2. Half-Day Workshop</h4>
-      <ul>
-        <li>Length: 3–4 hours</li>
-        <li>Purpose: Interactive, deeper exploration.</li>
-        <li>Ideal For: Off-timetable or PSHE days.</li>
-      </ul>
-      <p class="example">Example: Creative Expression Through Art with showcase.</p>
-    </div>
-
-    <div class="package">
-      <h4>3. Themed Full Day / Series</h4>
-      <ul>
-        <li>Length: 1 day OR 3–4 sessions</li>
-        <li>Purpose: Build confidence over time.</li>
-        <li>Ideal For: Transition programmes, cohorts.</li>
-      </ul>
-      <p class="example">Example: Leadership in Action or Healthy Body, Healthy Mind.</p>
-    </div>
-
-    <div class="package">
-      <h4>4. Integrated Programme</h4>
-      <ul>
-        <li>Length: 6–12 weeks</li>
-        <li>Purpose: Build into ElevatEd’s core pillars.</li>
-        <li>Ideal For: Sustained intervention, partnerships.</li>
-      </ul>
-      <p class="example">Example: A 6-week Resilience Pathway.</p>
-    </div>
-
-  </div>
-</div>
+  // Close mega menu on ESC for accessibility
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      servicesMenu.classList.remove('open');
+    }
+  });
+</script>
 
 </body>
 </html>
