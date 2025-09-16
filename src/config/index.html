@@ -1,173 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Policies - ElevatEd</title>
+<title>School Contact Form</title>
 <style>
   body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
+    font-family: Arial, sans-serif;
+    padding: 20px;
   }
-  .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
+
+  /* বোতাম স্টাইল */
+  .contact-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
   }
-  h1 {
-    text-align: center;
-    color: #1a73e8;
-    margin-bottom: 40px;
+
+  .contact-button:hover {
+    background-color: #0056b3;
   }
-  .buttons {
+
+  /* ফর্ম কন্টেইনার */
+  #contact-form-container {
+    display: none; /* Initially hidden */
+    margin-top: 20px;
+    max-width: 500px;
+  }
+
+  form {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
+    flex-direction: column;
   }
-  .buttons button {
-    background-color: #1a73e8;
+
+  input, textarea {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  button.submit-btn {
+    background-color: #28a745;
     color: white;
     border: none;
-    padding: 12px 22px;
-    font-size: 15px;
-    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  .buttons button:hover {
-    background-color: #155ab6;
+
+  button.submit-btn:hover {
+    background-color: #1e7e34;
   }
-  .policy-section {
-    display: none;
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-    animation: fadeIn 0.4s ease forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px);}
-    to { opacity: 1; transform: translateY(0);}
-  }
-  ul {
-    margin-left: 20px;
-  }
-  @media (max-width: 600px) {
-    .buttons {
-      flex-direction: column;
-      gap: 10px;
-    }
-    .buttons button {
-      width: 100%;
-    }
+
+  .confirmation {
+    margin-top: 10px;
+    color: green;
+    font-weight: bold;
   }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>Policies</h1>
-  
-  <div class="buttons">
-    <button onclick="showPolicy('policy1')">Child Protection & Safeguarding</button>
-    <button onclick="showPolicy('policy2')">Behaviour Policy</button>
-    <button onclick="showPolicy('policy3')">E-Safety Policy</button>
-    <button onclick="showPolicy('policy4')">Whistleblowing Policy</button>
-    <button onclick="showPolicy('policy5')">SEND Policy</button>
-    <button onclick="showPolicy('policy6')">Health & Safety Policy</button>
-  </div>
-  
-  <!-- Policy 1 -->
-  <div id="policy1" class="policy-section">
-    <h2>Child Protection and Safeguarding Policy</h2>
-    <p><strong>Date Adopted:</strong> 7th June 2025 | <strong>Review Date:</strong> June 2026</p>
-    <p><strong>Policy Lead:</strong> Tracie Daly, DSL | <strong>Approved by:</strong> Mark Aitken</p>
-    
-    <h3>1. Statement of Intent</h3>
-    <p>ElevatEd AP Ltd is committed to safeguarding and promoting the welfare of all children and young people...</p>
+<h2>School Page</h2>
 
-    <h3>2. Guiding Principles</h3>
-    <ul>
-      <li>Child-Centred Approach: We will always act in the best interests of the child.</li>
-      <li>Prevention: We will take proactive steps to prevent harm to children.</li>
-      <li>Protection: We will respond robustly and effectively to concerns about child abuse or neglect.</li>
-      <li>Partnership: We will work collaboratively with parents/carers, local authorities, and other agencies to safeguard children.</li>
-      <li>Confidentiality: Information will be shared on a "need to know" basis.</li>
-      <li>Transparency: Our procedures will be clear and accessible.</li>
-    </ul>
+<!-- বোতাম -->
+<a href="#" class="contact-button" id="openFormBtn">Discover how Elevated can support your school</a>
 
-    <h3>3. Scope and Definitions</h3>
-    <p>Scope: This policy applies to all children and young people attending ElevatEd...</p>
-    <ul>
-      <li>Child Protection: Protecting children from maltreatment...</li>
-      <li>Safeguarding: Encompasses child protection and broader welfare...</li>
-      <li>Abuse Categories: Physical, Emotional, Sexual, Neglect</li>
-      <li>Harmful Sexual Behaviour: Differentiating between children & adults</li>
-      <li>Contextual Safeguarding: Extra-familial risks</li>
-    </ul>
-
-    <h3>4. Roles and Responsibilities</h3>
-    <p>Designated Safeguarding Lead (DSL): Tracie Daly (tracie@elevate-ed.co.uk)</p>
-    <ul>
-      <li>First point of contact for all safeguarding concerns.</li>
-      <li>Liaises with social care & agencies.</li>
-      <li>Maintains confidential records & advises staff.</li>
-    </ul>
-    <p>All Staff & Volunteers: Familiarise with this policy & KCSIE, report concerns, maintain professional boundaries...</p>
-    
-    <!-- You can continue adding more sections as needed -->
-  </div>
-  
-  <!-- Policy 2 -->
-  <div id="policy2" class="policy-section">
-    <h2>Behaviour Policy</h2>
-    <p>Insert Behaviour Policy content here...</p>
-  </div>
-  
-  <!-- Policy 3 -->
-  <div id="policy3" class="policy-section">
-    <h2>E-Safety Policy</h2>
-    <p>Insert E-Safety Policy content here...</p>
-  </div>
-  
-  <!-- Policy 4 -->
-  <div id="policy4" class="policy-section">
-    <h2>Whistleblowing Policy</h2>
-    <p>Insert Whistleblowing Policy content here...</p>
-  </div>
-  
-  <!-- Policy 5 -->
-  <div id="policy5" class="policy-section">
-    <h2>SEND Policy</h2>
-    <p>Insert SEND Policy content here...</p>
-  </div>
-  
-  <!-- Policy 6 -->
-  <div id="policy6" class="policy-section">
-    <h2>Health & Safety Policy</h2>
-    <p>Insert Health & Safety Policy content here...</p>
-  </div>
-  
+<!-- ফর্ম -->
+<div id="contact-form-container">
+  <form id="contactForm">
+    <input type="text" name="name" placeholder="আপনার নাম" required>
+    <input type="email" name="email" placeholder="আপনার ইমেইল" required>
+    <textarea name="message" placeholder="আপনার বার্তা লিখুন" rows="5" required></textarea>
+    <button type="submit" class="submit-btn">Send</button>
+  </form>
+  <div class="confirmation" id="confirmationMsg"></div>
 </div>
 
 <script>
-function showPolicy(id) {
-  // Hide all policies
-  const sections = document.querySelectorAll('.policy-section');
-  sections.forEach(sec => sec.style.display = 'none');
+  // বোতাম ক্লিক করলে ফর্ম দেখানো
+  const openFormBtn = document.getElementById('openFormBtn');
+  const formContainer = document.getElementById('contact-form-container');
+  openFormBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    formContainer.style.display = 'block';
+    formContainer.scrollIntoView({behavior: "smooth"});
+  });
 
-  // Show selected policy
-  const selected = document.getElementById(id);
-  selected.style.display = 'block';
-  selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
+  // ফর্ম সাবমিশন
+  const contactForm = document.getElementById('contactForm');
+  const confirmationMsg = document.getElementById('confirmationMsg');
+
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // ফর্ম ডাটা নিতে পারেন (এখানে শুধু confirmation দেখানো হচ্ছে)
+    confirmationMsg.textContent = "We will respond to your enquiry shortly.";
+
+    // আপনার ইমেইলে পাঠানোর জন্য backend integration বা email service ব্যবহার করতে হবে
+    // যেমন: Formspree, EmailJS, বা আপনার সার্ভারের PHP/Node.js ফাংশন
+    contactForm.reset();
+  });
 </script>
 
 </body>
