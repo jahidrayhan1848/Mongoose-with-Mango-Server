@@ -1,118 +1,125 @@
-<!DOCTYPE html>
-<html lang="bn">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>School Contact Form</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>3 Buttons Toggle Cards</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 24px; background:#f7fafc; color:#111; }
+    .btn { padding: 10px 16px; border:1px solid #ccc; background:#fff; cursor:pointer; border-radius:8px; margin-right:8px; }
+    .btn.active { border-color:#2b6cb0; background:#ebf4ff; }
+    .panel { display:none; margin-top:18px; }
+    .panel.show { display:block; }
 
-  /* বোতাম স্টাইল */
-  .contact-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #007BFF;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-  }
-
-  .contact-button:hover {
-    background-color: #0056b3;
-  }
-
-  /* ফর্ম কন্টেইনার */
-  #contact-form-container {
-    display: none; /* Initially hidden */
-    margin-top: 20px;
-    max-width: 500px;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  input, textarea {
-    padding: 10px;
-    margin-bottom: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-
-  button.submit-btn {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  button.submit-btn:hover {
-    background-color: #1e7e34;
-  }
-
-  .confirmation {
-    margin-top: 10px;
-    color: green;
-    font-weight: bold;
-  }
-</style>
+    /* Card style */
+    .card {
+      border: 1px solid #cce7f6;
+      background: #fdfefe;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 380px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .card-header img {
+      width:40px;
+      height:40px;
+      margin-right:10px;
+    }
+    .card-header h3 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0;
+    }
+    .card p {
+      margin: 6px 0;
+      line-height: 1.4;
+    }
+  </style>
 </head>
 <body>
 
-<h2>School Page</h2>
+  <h2>Choose one</h2>
 
-<!-- বোতাম -->
-<a href="#" class="contact-button" id="openFormBtn">Discover how Elevated can support your school</a>
+  <div id="buttons">
+    <button class="btn" data-target="p1">Button 1</button>
+    <button class="btn" data-target="p2">Button 2</button>
+    <button class="btn" data-target="p3">Button 3</button>
+  </div>
 
-<!-- ফর্ম -->
-<div id="contact-form-container">
-  <form id="contactForm">
-    <input type="text" name="name" placeholder="আপনার নাম" required>
-    <input type="email" name="email" placeholder="আপনার ইমেইল" required>
-    <textarea name="message" placeholder="আপনার বার্তা লিখুন" rows="5" required></textarea>
-    <button type="submit" class="submit-btn">Send</button>
-  </form>
-  <div class="confirmation" id="confirmationMsg"></div>
-</div>
+  <div id="panels">
+    <!-- Element 1 -->
+    <div id="p1" class="panel">
+      <div class="card">
+        <div class="card-header">
+          <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="icon">
+          <h3>Single Session</h3>
+        </div>
+        <p><strong>Length:</strong> 60–120 minutes</p>
+        <p><strong>Purpose:</strong> Standalone, focused on one skill or theme.</p>
+        <p><strong>Example:</strong> Mindfulness & Stress Management (Wellbeing) or Public Speaking for Confidence (Leadership).</p>
+        <p><strong>Ideal For:</strong> Taster sessions, enrichment days, or quick interventions.</p>
+      </div>
+    </div>
 
-<script>
-  // বোতাম ক্লিক করলে ফর্ম দেখানো
-  const openFormBtn = document.getElementById('openFormBtn');
-  const formContainer = document.getElementById('contact-form-container');
-  openFormBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    formContainer.style.display = 'block';
-    formContainer.scrollIntoView({behavior: "smooth"});
-  });
+    <!-- Element 2 -->
+    <div id="p2" class="panel">
+      <div class="card">
+        <div class="card-header">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="icon">
+          <h3>Group Workshop</h3>
+        </div>
+        <p><strong>Length:</strong> Half day or full day</p>
+        <p><strong>Purpose:</strong> Explore a theme in more depth with group activities.</p>
+        <p><strong>Example:</strong> Team building, Leadership skills, or Creative problem solving.</p>
+        <p><strong>Ideal For:</strong> Schools, training programs, or corporate groups.</p>
+      </div>
+    </div>
 
-  // ফর্ম সাবমিশন
-  const contactForm = document.getElementById('contactForm');
-  const confirmationMsg = document.getElementById('confirmationMsg');
+    <!-- Element 3 -->
+    <div id="p3" class="panel">
+      <div class="card">
+        <div class="card-header">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135810.png" alt="icon">
+          <h3>Long-Term Program</h3>
+        </div>
+        <p><strong>Length:</strong> Weekly sessions over several months</p>
+        <p><strong>Purpose:</strong> Sustainable development and long-term growth.</p>
+        <p><strong>Example:</strong> Confidence building program, Continuous mentoring.</p>
+        <p><strong>Ideal For:</strong> Students, youth development, or ongoing training.</p>
+      </div>
+    </div>
+  </div>
 
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+  <script>
+    const buttons = document.querySelectorAll('#buttons .btn');
+    const panels  = document.querySelectorAll('#panels .panel');
 
-    // ফর্ম ডাটা নিতে পারেন (এখানে শুধু confirmation দেখানো হচ্ছে)
-    confirmationMsg.textContent = "We will respond to your enquiry shortly.";
+    function resetAll() {
+      panels.forEach(p => p.classList.remove('show'));
+      buttons.forEach(b => b.classList.remove('active'));
+    }
 
-    // আপনার ইমেইলে পাঠানোর জন্য backend integration বা email service ব্যবহার করতে হবে
-    // যেমন: Formspree, EmailJS, বা আপনার সার্ভারের PHP/Node.js ফাংশন
-    contactForm.reset();
-  });
-</script>
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        const targetEl = document.getElementById(targetId);
+
+        if (btn.classList.contains('active')) {
+          resetAll(); // আবার click করলে hide হয়ে যাবে
+          return;
+        }
+
+        resetAll();
+        btn.classList.add('active');
+        targetEl.classList.add('show');
+      });
+    });
+  </script>
 
 </body>
 </html>
